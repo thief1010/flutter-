@@ -1,0 +1,4 @@
+enum ButtonStatus{
+  NORMAL,
+  LOADING
+}
