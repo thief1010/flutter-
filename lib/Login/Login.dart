@@ -106,7 +106,7 @@ class _LoginPageState extends State<LoginPage> {
           /// 设置边距
           Padding(
             /// 与四个方向的距离:
-            padding: EdgeInsets.fromLTRB(20, 0, 0, 20),
+            padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
             child: _sendCaptchaButton(),
           )
         ],
@@ -149,7 +149,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-
-

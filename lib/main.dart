@@ -3,8 +3,12 @@ import 'package:ios_develop/TestOneViewcontroller.dart';
 import 'package:ios_develop/FirstScreen.dart';
 import 'package:ios_develop/SecondScreen.dart';
 import 'package:ios_develop/Login/Login.dart';
+import 'package:ios_develop/LayoutTest/RowOrColumnLayoutPage.dart';
+import 'package:ios_develop/ContainerTest/ContainerPage.dart';
+import 'package:ios_develop/ContainerTest/TabbarPage.dart';
+import 'package:ios_develop/Tabbar/BottomTabbarWidget.dart';
 
-void main() => runApp(SecondScreen());
+void main() => runApp(BottomTabbarWidgetPage());
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.

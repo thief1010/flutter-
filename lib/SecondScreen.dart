@@ -49,9 +49,23 @@ class _SecondScreenState extends State<SecondScreenPage> with TickerProviderStat
   @override
   void initState() {
     super.initState();
-    // vsync 在此处时忽略不必要的情况
+    // vsync 是为了防止动画的UI不在当前屏幕时，不需要绘制，从而防止消耗不必要的资源。
     controller1 = AnimationController(
-        duration: Duration(milliseconds: 2000), vsync: this);
+        duration: Duration(milliseconds: 2000), reverseDuration: Duration(seconds: 2), vsync: this);
+
+
+//    // 开始播放动画，只显示动画一次
+//    controller1.forward();
+//    // 循环播放动画
+//    controller1.repeat();
+//    //停止动画
+//    controller1.stop();
+//    //重置动画
+//    controller1.reset();
+//    //反向播放动画(在正向动画播放完的情况下才有效)
+//    controller1.reverse();
+//    //释放动画所占的资源
+//    controller1.dispose();
 
     animation1 = ColorTween(begin: Colors.redAccent, end: Colors.cyan)
         .animate(controller1)
@@ -149,11 +163,6 @@ class _SecondScreenState extends State<SecondScreenPage> with TickerProviderStat
 //        controller5.forward();
 //      }
 //    });
-
-////    只显示动画一次，根据调用setState的打印情况就会知道。重载就会使其激活，自己的见解，需思量
-//    controller.forward();
-////    重复不断的效果，调用setState的打印效果显示
-//    controller.repeat();
   }
 
   @override
@@ -170,16 +179,17 @@ class _SecondScreenState extends State<SecondScreenPage> with TickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          createFirstContainer(),
-          createSecondContainer(),
-          createThirdContainer(),
-          createFourthContainer(),
-          createFifthContainer(),
-        ],
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(10, 0, 10, 0)  ,
+        child : ListView(
+          children: <Widget>[
+            createFirstContainer(),
+            createSecondContainer(),
+            createThirdContainer(),
+            createFourthContainer(),
+            createFifthContainer(),
+          ],
+        )
       ),
     );
   }
