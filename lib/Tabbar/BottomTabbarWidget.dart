@@ -3,6 +3,9 @@ import 'package:ios_develop/LayoutTest/FlexLayoutPage.dart';
 import 'package:ios_develop/LayoutTest/RowOrColumnLayoutPage.dart';
 import 'package:ios_develop/LayoutTest/StackLayoutPage.dart';
 import 'package:ios_develop/LayoutTest/WrapLayoutPage.dart';
+import 'package:ios_develop/ContainerTest/TabbarPage.dart';
+import 'package:ios_develop/AlertView/AlertViewPage.dart';
+import 'package:ios_develop/Gesture/GesturePage.dart';
 
 class BottomTabbarWidgetPage extends StatelessWidget {
   @override
@@ -19,14 +22,15 @@ class BottomTabbarWidgetPage extends StatelessWidget {
 }
 
 class BottomTabbarWidget extends StatefulWidget {
-  BottomTabbarWidget({Key  key})  : super(key  : key);
+  BottomTabbarWidget({Key  key,this.title})  : super(key  : key);
+  final String title;
   @override
   _BottomTabbarWidgetState createState() => _BottomTabbarWidgetState();
 }
 
 class _BottomTabbarWidgetState extends State<BottomTabbarWidget> {
   int  _currentIndex = 0;
-  List<Widget> pages = [FlexLayoutPage(),RowOrColumnLayoutPage(),WrapLayoutPage(),StackLayoutPage()];
+  List<Widget> pages = [GesturePage(),WrapLayoutPage(),AlertViewPage(),TabbarPage()];
 
 
 
@@ -34,7 +38,21 @@ class _BottomTabbarWidgetState extends State<BottomTabbarWidget> {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:
+//      BottomAppBar(
+//        color: Colors.white,
+//        shape: CircularNotchedRectangle(), // 底部导航栏打一个圆形的洞
+//        child: Row(
+//          children: [
+//            IconButton(icon: Icon(Icons.home)),
+//            SizedBox(), //中间位置空出
+//            IconButton(icon: Icon(Icons.business)),
+//          ],
+//          mainAxisAlignment: MainAxisAlignment.spaceAround, //均分底部导航栏横向空间
+//        ),
+//      ),
+
+      BottomNavigationBar(
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -70,5 +88,6 @@ class _BottomTabbarWidgetState extends State<BottomTabbarWidget> {
         children: pages,
       ),
     );
+
   }
 }

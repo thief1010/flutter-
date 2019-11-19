@@ -27,7 +27,8 @@ class SecondScreenPage extends StatefulWidget {
   _SecondScreenState createState() => _SecondScreenState();
 }
 
-class _SecondScreenState extends State<SecondScreenPage> with TickerProviderStateMixin {
+class _SecondScreenState extends State<SecondScreenPage> with TickerProviderStateMixin,AutomaticKeepAliveClientMixin {
+  bool get wantKeepAlive => true;
   ButtonStatus btn1 = ButtonStatus.NORMAL;
   ButtonStatus btn2 = ButtonStatus.NORMAL;
   ButtonStatus btn3 = ButtonStatus.NORMAL;

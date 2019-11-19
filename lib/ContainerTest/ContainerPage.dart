@@ -22,7 +22,8 @@ class ContainerHomePage extends StatefulWidget {
   _ContainerPageState createState() => new _ContainerPageState();
 }
 
-class _ContainerPageState extends State<ContainerHomePage>{
+class _ContainerPageState extends State<ContainerHomePage> with AutomaticKeepAliveClientMixin{
+  bool get wantKeepAlive => true;
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
